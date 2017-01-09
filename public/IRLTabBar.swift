@@ -9,11 +9,17 @@ import Foundation
 import UIKit
 
 public class IRLUITabBar: UIView {
-
-    public var tabBarItems: [UITabBarItem]!
-    public var customTabBarItems: [IRKabBarItem]!
-    public var tabBarButtons: [UIButton]!
     
+    public var tabBarItems:         [UITabBarItem]!
+    public var customTabBarItems:   [IRKabBarItem]!
+    public var tabBarButtons:       [UIButton]!
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    internal var datasource: IRLUITabBarDataSource!
+    internal var delegate: IRLUITabBarDelegate!
     override internal init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -25,16 +31,9 @@ public class IRLUITabBar: UIView {
         layer.shadowRadius = 10
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         layer.shouldRasterize = true
-
+        
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    
-    internal var datasource: IRLUITabBarDataSource!
-    internal var delegate: IRLUITabBarDelegate!
     
     
 }

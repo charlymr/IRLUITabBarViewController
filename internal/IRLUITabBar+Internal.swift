@@ -134,10 +134,13 @@ extension IRLUITabBarController: IRLUITabBarDataSource, IRLUITabBarDelegate {
         let leftToRight = self.selectedIndex < index
         self.selectedIndex = index
         
+        // Animate or not
+        guard animateTransition == true else {
+            return
+        }
         
         viewController.view.transform =         CGAffineTransform.identity
             .translatedBy(x: leftToRight ? -40 : 40, y: 0)
-        
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: .curveEaseInOut, animations: {
             

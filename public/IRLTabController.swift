@@ -10,6 +10,8 @@ import UIKit
 
 public class IRLUITabBarController : UITabBarController {
     
+    @IBInspectable var animateTransition = true
+    
     public var customTabBar = IRLUITabBar()
     
     override public func viewDidLoad() {
