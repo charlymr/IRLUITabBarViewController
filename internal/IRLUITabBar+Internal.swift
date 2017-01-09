@@ -117,8 +117,8 @@ extension IRLUITabBarController: IRLUITabBarDataSource, IRLUITabBarDelegate {
         
         let transform =
             CGAffineTransform.identity
-                .scaledBy(x: 2.0, y: 2.0)
-                .translatedBy(x: 0, y: -6)
+                .scaledBy(x: CGFloat(selectedScale), y: CGFloat(selectedScale))
+                .translatedBy(x: 0, y: CGFloat(selectedOffset))
         
         guard let viewController = viewControllers?[index] else {
             return
@@ -134,14 +134,13 @@ extension IRLUITabBarController: IRLUITabBarDataSource, IRLUITabBarDelegate {
         let leftToRight = self.selectedIndex < index
         self.selectedIndex = index
         
-        // Animate or not
-        guard animateTransition == true else {
-            return
+        // Animate View Controlelr or not
+        if transitonAnimated == true  {
+            viewController.view.transform =         CGAffineTransform.identity
+                .translatedBy(x: leftToRight ? -40 : 40, y: 0)
+            
         }
-        
-        viewController.view.transform =         CGAffineTransform.identity
-            .translatedBy(x: leftToRight ? -40 : 40, y: 0)
-        
+
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: .curveEaseInOut, animations: {
             
             for item in self.customTabBar.customTabBarItems {

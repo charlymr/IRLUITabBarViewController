@@ -10,8 +10,11 @@ import UIKit
 
 public class IRLUITabBarController : UITabBarController {
     
-    @IBInspectable var animateTransition = true
+    @IBInspectable public var transitonAnimated: Bool = true
     
+    @IBInspectable public var selectedScale: Double = 2.0
+    @IBInspectable public var selectedOffset: Double = -6
+
     public var customTabBar = IRLUITabBar()
     
     override public func viewDidLoad() {

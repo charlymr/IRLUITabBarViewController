@@ -78,8 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				61565AC81E227CBC00C1C680 /* IRLTabBar.swift */,
-				61565AC91E227CBC00C1C680 /* IRLTabBarItem.swift */,
 				61565ACA1E227CBC00C1C680 /* IRLTabController.swift */,
+				61565AC91E227CBC00C1C680 /* IRLTabBarItem.swift */,
 			);
 			path = public;
 			sourceTree = SOURCE_ROOT;
