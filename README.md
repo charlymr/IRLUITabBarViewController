@@ -23,5 +23,5 @@ You're done.
 </p>
 
 <p align="Left" >
-  <img src="https://github.com/charlymr/IRLUITabBarViewController/blob/master/readmeimage/4.gif?raw=true" height="320px" >
+  <img src="https://github.com/charlymr/IRLUITabBarViewController/blob/master/readmeimage/4.gif?raw=true" height="640px" >
 </p>
