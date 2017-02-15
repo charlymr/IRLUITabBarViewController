@@ -23,6 +23,8 @@ public class IRLUITabBar: UIView {
     override internal init(frame: CGRect) {
         super.init(frame: frame)
         
+        contentScaleFactor = UIScreen.main.scale
+
         self.backgroundColor = UIColor.white
         
         layer.shadowColor = UIColor.black.cgColor
