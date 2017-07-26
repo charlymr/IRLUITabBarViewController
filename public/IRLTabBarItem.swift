@@ -11,6 +11,7 @@ import UIKit
 public class IRKabBarItem: UIView {
     
     public var iconView: UIImageView!
+    public var titleView: UILabel!
     
     override init (frame : CGRect) {
         super.init(frame : frame)

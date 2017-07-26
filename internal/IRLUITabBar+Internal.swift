@@ -96,8 +96,15 @@ internal extension IRKabBarItem {
         
         iconView.image = image
         iconView.sizeToFit()
-        
         self.addSubview(iconView)
+
+        // Create title view
+        titleView = UILabel(frame: CGRect(x: 0, y: frame.height-10, width: frame.width, height: 10))
+        titleView.font = UIFont.boldSystemFont(ofSize: 8)
+        titleView.adjustsFontSizeToFitWidth = true
+        titleView.textAlignment = .center
+        titleView.text = item.title
+        self.addSubview(titleView)
         
     }
     
