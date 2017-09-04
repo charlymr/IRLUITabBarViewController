@@ -44,7 +44,7 @@ internal extension  IRLUITabBar {
             customTabBarItems.append(customTabBarItem)
             
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: container.width, height: container.height))
-            button.addTarget(self, action: #selector(IRLUITabBar.barItemTapped(_:)), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action: #selector(self.barItemTapped(_:)), for: UIControlEvents.touchUpInside)
             
             customTabBarItem.addSubview(button)
             tabBarButtons.append(button)
@@ -74,7 +74,7 @@ internal extension  IRLUITabBar {
         return tabBarContainerRect
     }
     
-    func barItemTapped(_ sender : UIButton) {
+    @objc func barItemTapped(_ sender : UIButton) {
         let index = tabBarButtons.index(of: sender)!
         
         delegate.didSelectViewController(self, atIndex: index)
