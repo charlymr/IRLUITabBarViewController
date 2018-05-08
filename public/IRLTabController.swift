@@ -38,6 +38,12 @@ public class IRLUITabBarController : UITabBarController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         didSelectViewController(customTabBar, atIndex: 0)
+        customTabBar.frame = tabBar.frame
     }
     
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        customTabBar.frame = tabBar.frame
+    }
+
 }
