@@ -44,7 +44,7 @@ internal extension  IRLUITabBar {
             customTabBarItems.append(customTabBarItem)
             
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: container.width, height: container.height))
-            button.addTarget(self, action: #selector(self.barItemTapped(_:)), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action: #selector(self.barItemTapped(_:)), for: UIControl.Event.touchUpInside)
             
             customTabBarItem.addSubview(button)
             tabBarButtons.append(button)
