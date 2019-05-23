@@ -38,7 +38,7 @@ internal extension  IRLUITabBar {
             let container = containers[index]
             
             let customTabBarItem = IRKabBarItem(frame: container)
-            customTabBarItem.setup(item)
+            customTabBarItem.setup(item, scale: itemScale, offsetY: itemOffsetY)
             
             self.addSubview(customTabBarItem)
             customTabBarItems.append(customTabBarItem)
@@ -84,7 +84,7 @@ internal extension  IRLUITabBar {
 
 internal extension IRKabBarItem {
     
-    func setup(_ item: UITabBarItem) {
+    func setup(_ item: UITabBarItem, scale: Float = 1.0, offsetY: Float = 0.0) {
         
         guard let image = item.image else {
             fatalError("add images to tabbar items")
@@ -92,7 +92,7 @@ internal extension IRKabBarItem {
         
         // create imageView centered within a container
         iconView = UIImageView(frame: CGRect(x: (frame.width-image.size.width)/2, y: (frame.height-image.size
-            .height)/2, width: frame.width, height: frame.height))
+            .height)/2+CGFloat(offsetY), width: (frame.width*CGFloat(scale)), height: (frame.height*CGFloat(scale))))
         
         iconView.image = image
         iconView.sizeToFit()

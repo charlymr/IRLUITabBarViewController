@@ -13,6 +13,8 @@ public class IRLUITabBar: UIView {
     public var tabBarItems:         [UITabBarItem]!
     public var customTabBarItems:   [IRKabBarItem]!
     public var tabBarButtons:       [UIButton]!
+    public var itemScale: Float = 1.0
+    public var itemOffsetY: Float = 1.0
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
