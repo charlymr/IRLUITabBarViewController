@@ -14,6 +14,8 @@ public class IRLUITabBarController : UITabBarController {
     
     @IBInspectable public var selectedScale: Double = 2.0
     @IBInspectable public var selectedOffset: Double = -6
+    @IBInspectable public var itemScale: Float = 1.0
+    @IBInspectable public var itemOffsetY: Float = 0.0
 
     public var customTabBar = IRLUITabBar()
     
@@ -28,6 +30,8 @@ public class IRLUITabBarController : UITabBarController {
         
         // Create Custom Tab
         customTabBar = IRLUITabBar(frame: tabBar.frame)
+        customTabBar.itemScale = itemScale
+        customTabBar.itemOffsetY = itemOffsetY
         customTabBar.datasource = self
         customTabBar.delegate = self
         customTabBar.setup()
