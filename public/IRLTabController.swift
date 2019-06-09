@@ -13,7 +13,7 @@ public class IRLUITabBarController : UITabBarController {
     @IBInspectable public var transitonAnimated: Bool = true
     
     @IBInspectable public var selectedScale: Double = 2.0
-    @IBInspectable public var selectedOffset: Double = -6
+    @IBInspectable public var selectedOffset: Double = -12
     @IBInspectable public var itemScale: Float = 1.0
     @IBInspectable public var itemOffsetY: Float = 0.0
 
@@ -36,9 +36,34 @@ public class IRLUITabBarController : UITabBarController {
         customTabBar.delegate = self
         customTabBar.setup()
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(statusBarFrameDidChange),
+            name: UIApplication.didChangeStatusBarFrameNotification,
+            object: nil)
+        fixViewSizeDependingOnStatusbar()
+        self.view.layoutIfNeeded()
+
         self.view.addSubview(customTabBar)
     }
     
+    private func fixViewSizeDependingOnStatusbar() {
+        UIView.animate(withDuration: 0.2) {
+            self.customTabBar.frame = self.tabBar.frame
+        }
+    }
+    
+    override public func viewWillLayoutSubviews() {
+        fixViewSizeDependingOnStatusbar()
+        super.viewWillLayoutSubviews()
+    }
+    
+    @objc func statusBarFrameDidChange() {
+        fixViewSizeDependingOnStatusbar()
+        self.view.layoutIfNeeded()
+    }
+
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         didSelectViewController(customTabBar, atIndex: 0)
@@ -48,6 +73,7 @@ public class IRLUITabBarController : UITabBarController {
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         customTabBar.frame = tabBar.frame
+        setNeedsStatusBarAppearanceUpdate()
     }
 
 }
