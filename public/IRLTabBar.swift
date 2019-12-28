@@ -27,7 +27,12 @@ public class IRLUITabBar: UIView {
         
         contentScaleFactor = UIScreen.main.scale
 
-        self.backgroundColor = UIColor.white
+        if #available(iOSApplicationExtension 13.0, *) {
+            self.backgroundColor = UIColor.systemBackground
+        } else {
+            // Fallback on earlier versions
+            self.backgroundColor = UIColor.white
+        }
         
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.5
