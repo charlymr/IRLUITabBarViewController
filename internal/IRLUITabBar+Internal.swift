@@ -75,7 +75,7 @@ internal extension  IRLUITabBar {
     }
     
     @objc func barItemTapped(_ sender : UIButton) {
-        let index = tabBarButtons.index(of: sender)!
+        let index = tabBarButtons.firstIndex(of: sender)!
         
         delegate.didSelectViewController(self, atIndex: index)
     }
