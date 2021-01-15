@@ -10,9 +10,9 @@ import UIKit
 
 public class IRLUITabBar: UIView {
     
-    public var tabBarItems:         [UITabBarItem]!
-    public var customTabBarItems:   [IRKabBarItem]!
-    public var tabBarButtons:       [UIButton]!
+    public var tabBarItems: [UITabBarItem]!
+    public var customTabBarItems: [IRKabBarItem]!
+    public var tabBarButtons: [UIButton]!
     public var itemScale: Float = 1.0
     public var itemOffsetY: Float = 1.0
 
@@ -20,8 +20,9 @@ public class IRLUITabBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    internal var datasource: IRLUITabBarDataSource!
-    internal var delegate: IRLUITabBarDelegate!
+    internal weak var datasource: IRLUITabBarDataSource!
+    internal weak var delegate: IRLUITabBarDelegate!
+    
     override internal init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -43,8 +44,4 @@ public class IRLUITabBar: UIView {
         
     }
     
-    
-    
 }
-
-
