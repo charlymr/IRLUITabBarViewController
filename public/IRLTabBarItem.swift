@@ -13,17 +13,16 @@ public class IRKabBarItem: UIView {
     public var iconView: UIImageView!
     public var titleView: UILabel!
     
-    override init (frame : CGRect) {
-        super.init(frame : frame)
+    override init (frame: CGRect) {
+        super.init(frame: frame)
     }
     
     convenience init () {
-        self.init(frame:CGRect.zero)
+        self.init(frame: CGRect.zero)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
 }

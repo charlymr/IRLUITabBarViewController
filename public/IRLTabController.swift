@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class IRLUITabBarController : UITabBarController {
+public class IRLUITabBarController: UITabBarController {
     
     @IBInspectable public var transitonAnimated: Bool = true
     

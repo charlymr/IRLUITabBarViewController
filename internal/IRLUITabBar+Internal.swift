@@ -8,12 +8,11 @@
 import Foundation
 import UIKit
 
-internal protocol IRLUITabBarDataSource {
+internal protocol IRLUITabBarDataSource: NSObjectProtocol {
     func tabBarItemsInCustomTabBar(_ tabBarView: IRLUITabBar) -> [UITabBarItem]
 }
 
-
-internal protocol IRLUITabBarDelegate {
+internal protocol IRLUITabBarDelegate: NSObjectProtocol {
     func didSelectViewController(_ tabBarView: IRLUITabBar, atIndex index: Int)
 }
 
@@ -74,7 +73,7 @@ internal extension  IRLUITabBar {
         return tabBarContainerRect
     }
     
-    @objc func barItemTapped(_ sender : UIButton) {
+    @objc func barItemTapped(_ sender: UIButton) {
         let index = tabBarButtons.firstIndex(of: sender)!
         
         delegate.didSelectViewController(self, atIndex: index)
@@ -142,9 +141,9 @@ extension IRLUITabBarController: IRLUITabBarDataSource, IRLUITabBarDelegate {
         self.selectedIndex = index
         
         // Animate View Controlelr or not
-        if transitonAnimated == true  {
+        if transitonAnimated == true {
             viewController.view.transform =         CGAffineTransform.identity
-                .translatedBy(x: leftToRight ? -40 : 40, y: 0)
+                .translatedBy(x: leftToRight ? -40: 40, y: 0)
             
         }
 
@@ -161,7 +160,6 @@ extension IRLUITabBarController: IRLUITabBarDataSource, IRLUITabBarDelegate {
             
         }) { (_) in
         }
-        
         
     }
     
