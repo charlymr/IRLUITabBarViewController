@@ -158,8 +158,9 @@ extension IRLUITabBarController: IRLUITabBarDataSource, IRLUITabBarDelegate {
             
             viewController.view.transform = CGAffineTransform.identity
             
-        }) { (_) in
-        }
+        }, completion: { (_) in
+            
+        })
         
     }
     
